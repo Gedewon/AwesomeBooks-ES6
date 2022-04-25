@@ -1,13 +1,12 @@
-import {
-  reloadBook as initialize,
-  render,
-  removeBook,
-  removeBooks,
-} from "./modules/helperElement.js";
-
+import { reloadBook as initialize, render } from "./modules/helperElement.js";
+import { DateTime } from "./modules/luxon.js";
 const timeDate = document.querySelector("#time-date");
 
-timeDate.innerHTML = new Date();
+setInterval(() => {
+  timeDate.innerHTML = DateTime.now().toLocaleString(
+    DateTime.DATETIME_FULL_WITH_SECONDS
+  );
+}, 60);
 
 initialize();
 
